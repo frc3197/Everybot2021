@@ -3,12 +3,15 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.commands;
-
+import frc.robot.subsystems.intake;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class runIntake extends CommandBase {
+  intake runIntake;
   /** Creates a new runIntake. */
-  public runIntake() {
+  public runIntake(intake a) {
+    runIntake = a;
+    addRequirements(runIntake);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 

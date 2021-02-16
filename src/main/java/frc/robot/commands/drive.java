@@ -30,7 +30,7 @@ public class drive extends CommandBase {
   public void execute() {
     double left = RobotContainer.getYLeftStick();
     double right = RobotContainer.getYRightStick();
-    m_driveTrain.tankDrive(left*-.6, right*-.6);
+    m_driveTrain.tankDrive(left * -.6, right * -.6);
   }
 
   // Called once the command ends or is interrupted.
