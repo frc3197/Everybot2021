@@ -27,7 +27,7 @@ public class driveTrain extends SubsystemBase {
     motor1 = new WPI_TalonFX(b);
     motor2 = new WPI_TalonFX(c);
     motor3 = new WPI_TalonFX(d);
-    
+
     motor0.setNeutralMode(NeutralMode.Brake);
     motor1.setNeutralMode(NeutralMode.Brake);
     motor2.setNeutralMode(NeutralMode.Brake);
