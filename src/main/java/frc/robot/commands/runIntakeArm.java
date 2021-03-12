@@ -4,17 +4,16 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.intake;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.intakeArm;
 
-public class runIntake extends CommandBase {
-  public intake runIntake;
-  private double output;
-  /** Creates a new runIntake. */
-  public runIntake(intake a, double output) {
-    runIntake = a;
-    this.output = output;
-    addRequirements(runIntake);
+public class runIntakeArm extends CommandBase {
+  public intakeArm runIntakeArm;
+  private double armOutput;
+  /** Creates a new runIntakeArm. */
+  public runIntakeArm(intakeArm a, double armOutput) {
+    runIntakeArm = a;
+    addRequirements(runIntakeArm);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -24,9 +23,11 @@ public class runIntake extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() { 
-    runIntake.setIntakeMotor(.4*output);
-  
+  public void execute() {
+
+    double output = runIntakeArm.getPIDController().calculate(runIntakeArm.getEncoderTicks(), 0);
+    runIntakeArm.setIntakeMotorArm(.1*output);
+
   }
 
   // Called once the command ends or is interrupted.

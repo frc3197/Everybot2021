@@ -10,9 +10,11 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.drive;
 import frc.robot.commands.runIntake;
+import frc.robot.commands.runIntakeArm;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.driveTrain;
 import frc.robot.subsystems.intake;
+import frc.robot.subsystems.intakeArm;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
@@ -30,8 +32,14 @@ public class RobotContainer {
 
   public static XboxController driver = new XboxController(0);
   public driveTrain m_driveTrain = new driveTrain(0, 1, 2, 3);
-  public JoystickButton driver1Button = new JoystickButton(driver, 1);
   public intake Intake = new intake();
+  public static JoystickButton driver0Button = new JoystickButton(driver, 0);
+  public static JoystickButton driver1Button = new JoystickButton(driver, 1);
+  //arm up and down buttons
+  public intakeArm IntakeArm = new intakeArm();
+  public static JoystickButton driver2Button = new JoystickButton(driver, 13);
+  public static JoystickButton driver3Button = new JoystickButton(driver, 14);
+
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
@@ -49,7 +57,13 @@ public class RobotContainer {
    * passing it to a {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    driver1Button.toggleWhenPressed(new runIntake(Intake));
+    driver0Button.whileHeld(new runIntake(Intake, 1));
+    driver1Button.whileHeld(new runIntake(Intake, -1));
+    driver2Button.whenPressed(new runIntakeArm(IntakeArm, -1));
+    driver3Button.whenPressed(new runIntakeArm(IntakeArm, 1));
+
+   //this is down   driver2Button.toggleWhenPressed(new runIntake(IntakeArm));
+    //this is up    driver3Button.toggleWhenPressed(new runIntake(IntakeArm));
   }
 
   /**
