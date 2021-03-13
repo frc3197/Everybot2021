@@ -28,7 +28,7 @@ public class runIntakeArm extends CommandBase {
   public void execute() {
 
     //double output = runIntakeArm.getPIDController().calculate(runIntakeArm.getEncoderTicks(), 0);
-    runIntakeArm.setIntakeMotorArm(.1 * armOutput);
+    runIntakeArm.setIntakeMotorArm(.25 * armOutput);
 
   }
 

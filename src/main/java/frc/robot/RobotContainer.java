@@ -37,8 +37,8 @@ public class RobotContainer {
   public static JoystickButton driver1Button = new JoystickButton(driver, 1);
   //arm up and down buttons
   public intakeArm IntakeArm = new intakeArm();
-  public static JoystickButton driver2Button = new JoystickButton(driver, 13);
-  public static JoystickButton driver3Button = new JoystickButton(driver, 14);
+  public static JoystickButton driver2Button = new JoystickButton(driver, 5);
+  public static JoystickButton driver3Button = new JoystickButton(driver, 6);
 
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -59,8 +59,8 @@ public class RobotContainer {
   private void configureButtonBindings() {
     driver0Button.whileHeld(new runIntake(Intake, 1));
     driver1Button.whileHeld(new runIntake(Intake, -1));
-    driver2Button.whenPressed(new runIntakeArm(IntakeArm, -1));
-    driver3Button.whenPressed(new runIntakeArm(IntakeArm, 1));
+    driver2Button.whileHeld(new runIntakeArm(IntakeArm, -1));
+    driver3Button.whileHeld(new runIntakeArm(IntakeArm, 1));
 
    //this is down   driver2Button.toggleWhenPressed(new runIntake(IntakeArm));
     //this is up    driver3Button.toggleWhenPressed(new runIntake(IntakeArm));

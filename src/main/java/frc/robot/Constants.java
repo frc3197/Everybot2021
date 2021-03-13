@@ -15,5 +15,5 @@ package frc.robot;
 public final class Constants {
 
 public static int intakeMotorID = 0;
-public static int intakeMotorArmID = 1;
+public static int intakeMotorArmID = 5;
 }
