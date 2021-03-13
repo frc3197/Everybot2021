@@ -33,8 +33,8 @@ public class driveTrain extends SubsystemBase {
     motor2.setNeutralMode(NeutralMode.Brake);
     motor3.setNeutralMode(NeutralMode.Brake);
 
-    leftMotors = new SpeedControllerGroup(motor0, motor1);
-    rightMotors = new SpeedControllerGroup(motor2, motor3);
+    leftMotors = new SpeedControllerGroup(motor2, motor3);
+    rightMotors = new SpeedControllerGroup(motor0, motor1);
 
     diffDrive = new DifferentialDrive(leftMotors, rightMotors);
   }
