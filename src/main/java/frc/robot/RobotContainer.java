@@ -31,9 +31,9 @@ public class RobotContainer {
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   public static XboxController driver = new XboxController(0);
-  public driveTrain m_driveTrain = new driveTrain(0, 1, 2, 3);
+  public driveTrain m_driveTrain = new driveTrain(3, 2, 0, 1);
   public intake Intake = new intake();
-  public static JoystickButton driver0Button = new JoystickButton(driver, 0);
+  public static JoystickButton driver0Button = new JoystickButton(driver, 2);
   public static JoystickButton driver1Button = new JoystickButton(driver, 1);
   //arm up and down buttons
   public intakeArm IntakeArm = new intakeArm();
@@ -57,8 +57,8 @@ public class RobotContainer {
    * passing it to a {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    driver0Button.whileHeld(new runIntake(Intake, 1));
-    driver1Button.whileHeld(new runIntake(Intake, -1));
+    driver0Button.toggleWhenPressed(new runIntake(Intake, -1));
+    driver1Button.toggleWhenPressed(new runIntake(Intake, 1));
     driver2Button.whileHeld(new runIntakeArm(IntakeArm, -1));
     driver3Button.whileHeld(new runIntakeArm(IntakeArm, 1));
 
@@ -82,5 +82,8 @@ public class RobotContainer {
 
   public static double getYRightStick() {
     return driver.getY(Hand.kRight);
+  }
+  public static double getXRightStick(){
+    return driver.getX(Hand.kRight);
   }
 }

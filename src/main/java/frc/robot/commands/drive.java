@@ -28,9 +28,9 @@ public class drive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double left = RobotContainer.getYLeftStick();
-    double right = RobotContainer.getYRightStick();
-    m_driveTrain.tankDrive(left * -.6, right * -.6);
+    double fwd = RobotContainer.getYLeftStick();
+    double rot = RobotContainer.getXRightStick();
+    m_driveTrain.arcadeDrive(fwd * -.6, rot * -.6);
   }
 
   // Called once the command ends or is interrupted.

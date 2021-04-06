@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.intakeArm;
 
@@ -27,8 +28,9 @@ public class runIntakeArm extends CommandBase {
   @Override
   public void execute() {
 
-    //double output = runIntakeArm.getPIDController().calculate(runIntakeArm.getEncoderTicks(), 0);
-    runIntakeArm.setIntakeMotorArm(.25 * armOutput);
+    double Output = runIntakeArm.getPIDController().calculate(runIntakeArm.getEncoderTicks(), 0);
+    SmartDashboard.putNumber(1);
+    runIntakeArm.setIntakeMotorArm(.2 * Output);
 
   }
 

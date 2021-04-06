@@ -32,7 +32,12 @@ public class driveTrain extends SubsystemBase {
     motor1.setNeutralMode(NeutralMode.Brake);
     motor2.setNeutralMode(NeutralMode.Brake);
     motor3.setNeutralMode(NeutralMode.Brake);
-
+    /*
+    motor0.setInverted(true);
+    motor1.setInverted(true);
+    motor2.setInverted(true);
+    motor3.setInverted(true);
+    */
     leftMotors = new SpeedControllerGroup(motor0, motor1);
     rightMotors = new SpeedControllerGroup(motor2, motor3);
 
@@ -47,5 +52,8 @@ public class driveTrain extends SubsystemBase {
   public void tankDrive(double l, double r) {
     diffDrive.tankDrive(l, r);
 
+  }
+  public void arcadeDrive(double fwd, double rot){
+    diffDrive.arcadeDrive(fwd, -rot);
   }
 }
